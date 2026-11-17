@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <h2 class="logo">MyPortfolio<span>.</span></h2>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+    <div class="hero-content">
+        <div class="hero-text">
+            <p class="subtitle">WELCOME TO MY PORTFOLIO</p>
+            <h1>Hi, I'm <span>Sardor</span></h1>
+            <h2>I am into <span id="typing"></span><span class="cursor">|</span></h2>
+            <p class="description">
+                I create modern and beautiful websites
+                using HTML, CSS and Bootstrap.
+            </p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+
+        <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg"
+             alt="My Profile" class="profile-img">
+    </div>
+</section>
+
+    <section class="about" id="about">
+        <h2>About <span>Me</span></h2>
+        <p>I am a beginner frontend developer passionate about web design.</p>
+    </section> 
+
+    <section class="skills" id="skills">
+    <h2>My <span>Skills</span></h2>
+
+    <div class="skills-container">
+        <div class="skill-card">
+            <h3>HTML</h3>
+            <p>Web Structure</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>CSS</h3>
+            <p>Web Styling</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Bootstrap</h3>
+            <p>Responsive Design</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>JavaScript</h3>
+            <p>Learning</p>
+        </div>
+    </div>
+</section>
+
+    <section class="projects" id="projects">
+    <h2>My <span>Projects</span></h2>
+    <p>Here are some of my recent works.</p>
+
+    <div class="projects-container">
+
+        <div class="project-card">
+            <h3>My Portfolio</h3>
+            <p>A modern personal portfolio website built with HTML and CSS.</p>
+            <a href="#home" class="btn">View Project</a>
+        </div>
+
+        <div class="project-card">
+            <h3>Landing Page</h3>
+            <p>A beautiful and responsive landing page design.</p>
+            <a href="#home" class="btn">View Project</a>
+        </div>
+
+        <div class="project-card">
+            <h3>Web Design</h3>
+            <p>Creative and modern website design ideas.</p>
+            <a href="#home" class="btn">View Project</a>
+        </div>
+
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2>Contact <span>Me</span></h2>
+    <p>Have a project in mind? Let's work together!</p>
+
+    <div class="contact-info">
+        <a href="mailto:sardor@example.com" class="btn">Email Me</a>
+        <a href="#home" class="btn">Back to Home</a>
+    </div>
+</section> 
+
+    <script>
+const words = [
+    "Frontend Developer",
+    "Web Designer",
+    "Creative Coder"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeEffect() {
+    const typing = document.getElementById("typing");
+    const currentWord = words[wordIndex];
+
+    if (!deleting) {
+        typing.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === currentWord.length) {
+            deleting = true;
+            setTimeout(typeEffect, 1500);
+            return;
+        }
+    } else {
+        typing.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+            deleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+        }
+    }
+
+    setTimeout(typeEffect, deleting ? 60 : 100);
+}
+
+typeEffect();
+</script> 
+
+<footer>
+    <p>© 2026 Sardor. All Rights Reserved.</p>
+    <p>Designed with ❤️ by Sardor</p>
+</footer> 
+
+</body>
+</html> 
